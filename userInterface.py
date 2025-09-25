@@ -1,39 +1,41 @@
 from model import ngramModel
 import save
 import os
+import glob
 
 class userInterface:
     def __init__(self):
+        # Initialization of the user interface
         pass
 
     def startInterface(self,model=None):
+        # Start the user interface
         while True:
             inputInt = int(input("[1] Load training Data\n[2] Generate Text\n[3] Save model (Currently requires large amount of RAM with larger models)\n[4] Load model\n[5] Add dataset\n[6] Exit\n1-6: "))
-
             if inputInt == 1:
                 try:
                     filepath = input("Filepath of unformatted Text: ")
                     n = int(input("Value for N: "))
                     model = ngramModel(n=n)
                     if os.path.isdir(filepath):
-                        print("isDir")
-                        for file in os.listdir(filepath):
+                        if filepath[-1] != "/":
+                            filepath += "/"
+                        for file in glob.glob(filepath+"*"):
                             print(filepath+"/"+file)
-                            model.addDataSet(filepath+"/"+file)
+                            model.addDataSet(file)
                     else:
-                        model.load()
-                        model.train()
+                        model.addDataSet(filepath)
                     print("Model has been trained")
                 except ValueError:
                     print("Invalid value for N")
-                #except:
-                #    print("File not found")
             elif inputInt == 2:
                 if model != None:
                     contextString = input("Preceeding text: ")
                     textSize = input("Sentence amount: ")
                     if textSize == "":
                         textSize = 1
+                    else:
+                        textSize = int(textSize)
                     print(model.generateAmountOfSentences(textSeed=contextString,sentNum=textSize))
                 else:
                     print("No model has been trained or loaded")

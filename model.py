@@ -5,10 +5,13 @@ import re
 
 class ngramModel:
     def __init__(self,filepath=None,n=2):
+        # Initialize the n-gram model with a specified value of n (default is 2 for bigrams)
+        # If the value of n is less than or equal to 0, an exception is raised
         if n <= 0:
             raise Exception("Value of N must be larger than 0")
         else:
             self.n = n
+        # instance variables initialization
         self.filepath = filepath
         self.tokenizedText = ''
         self.model = MLE(self.n)
@@ -87,21 +90,7 @@ class ngramModel:
                     continue
                 sent.append(currentWord)
         return sent
-
-    '''def generateTextWithInput(self,wordSeed,wordNum=1,randomSeed=None):
-        # generate text with 
-        sent = wordSeed.split(' ')
-        for i in range(wordNum):
-            word = self.model.generate(text_seed=sent)
-            if word == '</s>':
-                word = '.'
-                sent.append(word)
-            elif word == '<s>':
-                continue
-            else:
-                sent.append(word)
-        return sent'''
-
+    
     def generateAmountOfSentences(self,sentNum=1,textSeed=None,randomSeed=None):
         # simple for loop to generate a specified amount of full sentences
         sent = []

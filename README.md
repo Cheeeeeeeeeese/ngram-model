@@ -5,7 +5,7 @@ Basic Ngram model interface using nltk
 1. Install dependencies
 `pip install -r requirements.txt`
 2. Python version
-This program has been tested with Python 3.9.21 with pyenv as an environment manager.
+This program has been tested with the linux version of Python 3.9.21 with pyenv as an environment manager.
 
 # Usage
 1. Run main.py
@@ -21,7 +21,7 @@ This program has been tested with Python 3.9.21 with pyenv as an environment man
     1-6:
     ```
     ## Load training Data
-    The program will ask for the path to the training data. This training data must be in an unannotated syntax. After that the program asks for the wanted value of N. If no value is given it will default to 2. The value of N will define what the order of the ngram model will be and therefore directly affects the model size and results.
+    The program will ask for the path to the training data. This training data must be in an unannotated syntax. The path can either lead to a file or a folder with multiple datasets. After that the program asks for the wanted value of N. If no value is given it will default to 2. The value of N will define what the order of the ngram model will be and therefore directly affects the model size and results.
 
     ## Generate Text
     The user can input preceeding text to generate from onward. If no text is given, the program will generate a random text. After that the program asks for the amount of sentences that will be generated. If no value is given it will default to 1.
@@ -34,3 +34,6 @@ This program has been tested with Python 3.9.21 with pyenv as an environment man
 
     ## Add dataset
     Additional datasets can be added to the model. The dataset must be in the same unannotated syntax as the initial training data.
+
+    ## Exit
+    Exits the program.
