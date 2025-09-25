@@ -3,11 +3,8 @@ Basic Ngram model interface using nltk
 
 # Requirements
 ## Install dependencies  
-
 `pip install -r requirements.txt`  
-
 ## Python version  
-
 This program has been tested with the linux version of Python 3.9.21 with pyenv as an environment manager.  
 
 # Usage
