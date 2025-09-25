@@ -2,14 +2,18 @@
 Basic Ngram model interface using nltk
 
 # Requirements
-1. Install dependencies
-`pip install -r requirements.txt`
-2. Python version
-This program has been tested with the linux version of Python 3.9.21 with pyenv as an environment manager.
+## Install dependencies  
+
+`pip install -r requirements.txt`  
+
+## Python version  
+
+This program has been tested with the linux version of Python 3.9.21 with pyenv as an environment manager.  
 
 # Usage
 1. Run main.py
-`python main.py`
+    `python main.py`
+
 2. Interface
     ```
     [1] Load training Data

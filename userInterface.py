@@ -36,7 +36,12 @@ class userInterface:
                         textSize = 1
                     else:
                         textSize = int(textSize)
-                    print(model.generateAmountOfSentences(textSeed=contextString,sentNum=textSize))
+                    generatedText = model.generateAmountOfSentences(textSeed=contextString,sentNum=textSize)
+                    result = ""
+                    for sentence in generatedText:
+                        for word in sentence:
+                            result += word + " "
+                    print(contextString + result)
                 else:
                     print("No model has been trained or loaded")
             elif inputInt == 3:

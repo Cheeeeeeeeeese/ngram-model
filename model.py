@@ -14,7 +14,7 @@ class ngramModel:
         # instance variables initialization
         self.filepath = filepath
         self.tokenizedText = ''
-        self.model = MLE(self.n)
+        self.model = MLE(self.n) # Maximum Likelihood Estimator model from nltk
         self.text = ''
 
     def load(self):
