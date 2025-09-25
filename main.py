@@ -1,5 +1,3 @@
-from model import ngramModel
-from model import ngramModel
 from userInterface import userInterface
 
 if __name__ == "__main__":
