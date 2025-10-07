@@ -22,7 +22,7 @@ This program has been tested with the linux version of Python 3.9.21 with pyenv 
     1-6:
     ```
     ## Load training Data
-    The program will ask for the path to the training data. This training data must be in an unannotated syntax. The path can either lead to a file or a folder with multiple datasets. After that the program asks for the wanted value of N. If no value is given it will default to 2. The value of N will define what the order of the ngram model will be and therefore directly affects the model size and results.
+    The program will ask for the path to the training data. This training data must be in an unannotated syntax. The path can either lead to a file or a folder with multiple datasets. After that the program asks for the wanted value of N. If no value is given it will default to 2. The value of N will define what the order of the ngram model will be and therefore directly affects the model size and results. If a Model has already been loaded or trained, the dataset will be added to the existing model.
 
     ## Generate Text
     The user can input preceeding text to generate from onward. If no text is given, the program will generate a random text. After that the program asks for the amount of sentences that will be generated. If no value is given it will default to 1.
