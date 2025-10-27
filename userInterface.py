@@ -23,7 +23,7 @@ class userInterface:
                             # Ensure the filepath ends with a "/"
                             filepath += "/"
                         for file in glob.glob(filepath+"*"):
-                            print(filepath+"/"+file)
+                            print(file)
                             model.addDataSet(file)
                     else:
                         # If a single file is specified, add it to the model
