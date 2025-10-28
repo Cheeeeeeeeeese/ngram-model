@@ -11,7 +11,7 @@ class userInterface:
     def startInterface(self,model=None):
         # Start the user interface
         while True:
-            inputInt = int(input("[1] Load training Data\n[2] Generate Text\n[3] Save model (Currently requires large amount of RAM with larger models)\n[4] Load model\n[5] Add dataset\n[6] Exit\n1-6: "))
+            inputInt = int(input("[1] Load training Data\n[2] Generate Text\n[3] Save model (Currently requires large amount of RAM with larger models)\n[4] Load model\n[5] Exit\n1-5: "))
             if inputInt == 1:
                 try:
                     filepath = input("Filepath of unformatted Text: ")
@@ -67,24 +67,6 @@ class userInterface:
                     model = save.loadModel(filepath=filepath)
                     print("Model has been loaded")
                 except FileNotFoundError: # If the file is not found print an error message
-                    print("File not found")
-            elif inputInt == 5:
-                try: # Try to add a dataset to the existing model
-                    filepath = input("Filepath of unformatted Text: ")
-                    if os.path.isdir(filepath):
-                        # If a directory is specified, iterate through all files in the directory and add them to the model
-                        if filepath[-1] != "/":
-                            # Ensure the filepath ends with a "/"
-                            filepath += "/"
-                        for file in glob.glob(filepath+"*"):
-                            print(filepath+"/"+file)
-                            model.addDataSet(file)
-                    else:
-                        # If a single file is specified, add it to the model
-                        model.addDataSet(filepath)
-                    print("Model has been trained")
-                except FileNotFoundError:
-                    # If the file is not found print an error message
                     print("File not found")
             elif inputInt == 6:
                 break

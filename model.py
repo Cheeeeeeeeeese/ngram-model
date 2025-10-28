@@ -25,7 +25,7 @@ class ngramModel:
         # Close the file to prevent unintended behaviour
         file.close()
 
-    def train(self,addDataSet=False):
+    def train(self):
         # Tokenize the training data
         toktok = ToktokTokenizer()
         wordTokenize = toktok.tokenize
@@ -41,8 +41,8 @@ class ngramModel:
         # use the padded_everygram_pipeline to pad every sentence with <s> in the beginning and </s> in the end to specify the sentence beginnings and ends
         trainData, paddedSents = padded_everygram_pipeline(self.n, self.tokenizedText)
 
-        # if the user specified to add a dataset to the existing one, the vocabulary must be updated to the new tokens added
-        if len(self.model.vocab) > 0 and addDataSet:
+        # if a model has already been trained, the vocabulary must be updated to the new tokens added
+        if len(self.model.vocab) > 0:
             self.model.vocab.update(paddedSents)
             self.model.fit(trainData, paddedSents)
         else:
@@ -55,10 +55,10 @@ class ngramModel:
         #del(padded_sents)
 
     def addDataSet(self,filepath):
-        # add a dataset to an already trained model
+        # helper function to train a model on a new dataset
         self.filepath = filepath
         self.load()
-        self.train(addDataSet=True)
+        self.train()
 
     def generateSentence(self,wordNum=None,randomSeed=None,textSeed=None):
         # generate a sentence
