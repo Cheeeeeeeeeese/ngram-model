@@ -68,7 +68,7 @@ class userInterface:
                     print("Model has been loaded")
                 except FileNotFoundError: # If the file is not found print an error message
                     print("File not found")
-            elif inputInt == 6:
+            elif inputInt == 5:
                 break
             else:
                 print("Invalid input")
